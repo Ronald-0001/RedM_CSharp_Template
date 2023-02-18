@@ -1,0 +1,3 @@
+[submodule "external/RedM_LIB"]
+	path = external/RedM_LIB
+	url = https://github.com/ELF0001/RedM_LIB
