@@ -34,6 +34,9 @@
     <Reference Include="CitizenFX.Core">
       <HintPath>..\..\..\..\Desktop\RedM_References\CitizenFX.Core.dll</HintPath>
     </Reference>
+    <Reference Include="RedLib">
+      <HintPath>..\..\..\..\Desktop\RedM_References\RedLib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

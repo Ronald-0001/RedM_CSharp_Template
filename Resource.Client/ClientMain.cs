@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CitizenFX.Core;
+using RedLib;
 
 namespace Resource.Client
 {
@@ -14,6 +15,7 @@ namespace Resource.Client
         {
             // example code
             _ = Init();
+            Print.Log("Booting...");
             return;
         }
 
