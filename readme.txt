@@ -2,7 +2,7 @@
 - update refrence to CitizenFX.Core.dll
 
 // optionaly add RedLIB
-- fetch latest RedLIB.dll either go to https://github.com/ELF0001/RedM_LIB
+- fetch latest RedLIB.dll either go to https://github.com/Ronald-0001/RedM_LIB
 - or if you are using git you can update submodules using "git submodule update --init --recursive" / "git submodule update --remote --merge"
 - add refrence to RedLIB.dll found in "external/Red_Lib/include/RedLIB.dll" or where you downloaded it to
 
