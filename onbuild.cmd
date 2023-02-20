@@ -1,15 +1,18 @@
-if $(ConfigurationName) == Debug (
-  cd $(SolutionDir)
-  rmdir /s /q ..\server-data\resources\[local]\MagicSauce
-  mkdir ..\server-data\resources\[local]\MagicSauce
-  copy /y fxmanifest.lua ..\server-data\resources\[local]\MagicSauce
-  xcopy /y /e Client\bin\Debug\ ..\server-data\resources\[local]\MagicSauce\Client\bin\publish\
-  xcopy /y /e Server\bin\Debug\ ..\server-data\resources\[local]\MagicSauce\Server\bin\publish\
+set Resource=thisResourceName
+set Dir=..\server-data\resources\[local]
+
+if %Resource% == thisResourceName (
+  echo "avoiding resource creation please set the resource name inside build events"
 ) else (
   cd $(SolutionDir)
-  rmdir /s /q ..\server-data\resources\[local]\MagicSauce
-  mkdir ..\server-data\resources\[local]\MagicSauce
-  copy /y fxmanifest.lua ..\server-data\resources\[local]\MagicSauce
-  xcopy /y /e Client\bin\Release\ ..\server-data\resources\[local]\MagicSauce\Client\bin\publish\
-  xcopy /y /e Server\bin\Release\ ..\server-data\resources\[local]\MagicSauce\Server\bin\publish\
+  rmdir /s /q "%dir%\%Resource%"
+  mkdir "%dir%\%Resource%"
+  copy /y "fxmanifest.lua" "%dir%\%Resource%"
+  if $(ConfigurationName) == Debug (
+    xcopy /y /e "Resource.Client\bin\Debug\" "%dir%\%Resource%\Client\bin\publish\"
+    xcopy /y /e "Resource.Server\bin\Debug\" "%dir%\%Resource%\Server\bin\publish\"
+  ) else (
+    xcopy /y /e "Resource.Client\bin\Release\" "%dir%\%Resource%\Client\bin\publish\"
+    xcopy /y /e "Resource.Server\bin\Release\" "%dir%\%Resource%\Server\bin\publish\"
+  )
 )

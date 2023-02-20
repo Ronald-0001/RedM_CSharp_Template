@@ -51,4 +51,24 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>set Resource=thisResourceName
+set Dir=..\server-data\resources\[local]
+
+if %25Resource%25 == thisResourceName (
+  echo "avoiding resource creation please set the resource name inside build events"
+) else (
+  cd $(SolutionDir)
+  rmdir /s /q "%25dir%25\%25Resource%25"
+  mkdir "%25dir%25\%25Resource%25"
+  copy /y "fxmanifest.lua" "%25dir%25\%25Resource%25"
+  if $(ConfigurationName) == Debug (
+    xcopy /y /e "Resource.Client\bin\Debug\" "%25dir%25\%25Resource%25\Client\bin\publish\"
+    xcopy /y /e "Resource.Server\bin\Debug\" "%25dir%25\%25Resource%25\Server\bin\publish\"
+  ) else (
+    xcopy /y /e "Resource.Client\bin\Release\" "%25dir%25\%25Resource%25\Client\bin\publish\"
+    xcopy /y /e "Resource.Server\bin\Release\" "%25dir%25\%25Resource%25\Server\bin\publish\"
+  )
+)</PostBuildEvent>
+  </PropertyGroup>
 </Project>
