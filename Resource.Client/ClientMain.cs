@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using CitizenFX.Core;
 using RedLib;
 
@@ -11,35 +12,24 @@ namespace Resource.Client
     public class ClientMain : ClientScript
     {
 
-        public ClientMain()
-        {
-            // example code
-            _ = Init();
-            Print.Log("Booting...");
-            return;
-        }
-
+        public ClientMain() => _ = Init();
         private async Task Init()
         {
             // example code
             await Delay(100);
-            return;
+            Print.Log("Booting...");
+            Lib.SendNuiMessage(JsonConvert.SerializeObject(new { type = "init" }));
         }
 
+        // example command
         [Command("test1")]
-        public void Test()
-        {
-            // example code
-            // Debug.WriteLine("HELLO WORLD!");
-            return;
-        }
+        public static void Test() => Print.Log("Hello From Test");
 
+        // example tick
         [Tick]
-        private static async Task OnTick()
+        public static async Task OnTick()
         {
-            // example code
-            // Debug.WriteLine("HELLO WORLD!");
-            return;
+            await Delay(0);
         }
 
     }

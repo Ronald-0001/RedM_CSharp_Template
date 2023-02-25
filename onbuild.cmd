@@ -7,7 +7,8 @@ if %Resource% == thisResourceName (
   cd $(SolutionDir)
   rmdir /s /q "%dir%\%Resource%"
   mkdir "%dir%\%Resource%"
-  copy /y "fxmanifest.lua" "%dir%\%Resource%"
+  copy /y "Manifest\fxmanifest.lua" "%dir%\%Resource%"
+  xcopy /y /e "Nui\" "%dir%\%Resource%\Client\nui\"
   if $(ConfigurationName) == Debug (
     xcopy /y /e "Resource.Client\bin\Debug\" "%dir%\%Resource%\Client\bin\publish\"
     xcopy /y /e "Resource.Server\bin\Debug\" "%dir%\%Resource%\Server\bin\publish\"

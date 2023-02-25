@@ -7,13 +7,24 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resource.Server", "Resource
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Included_Files", "Included_Files", "{6AC79DA2-E572-4C8A-B143-DDB1E1EF5915}"
 	ProjectSection(SolutionItems) = preProject
-		fxmanifest.lua = fxmanifest.lua
 		linker.cmd = linker.cmd
 		onbuild.cmd = onbuild.cmd
 		readme.txt = readme.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resource.Client", "Resource.Client\Resource.Client.csproj", "{5DC4E4CA-E747-4438-989B-66AA8B81F19F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "manifest", "manifest", "{EF51B11E-D7A6-4C64-A4ED-0FFDF6AC32B0}"
+	ProjectSection(SolutionItems) = preProject
+		Manifest\fxmanifest.lua = Manifest\fxmanifest.lua
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nui", "nui", "{D027AE36-E433-4063-81D3-6CBE8793F361}"
+	ProjectSection(SolutionItems) = preProject
+		Nui\app.js = Nui\app.js
+		Nui\index.html = Nui\index.html
+		Nui\styles.css = Nui\styles.css
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +43,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EF51B11E-D7A6-4C64-A4ED-0FFDF6AC32B0} = {6AC79DA2-E572-4C8A-B143-DDB1E1EF5915}
+		{D027AE36-E433-4063-81D3-6CBE8793F361} = {6AC79DA2-E572-4C8A-B143-DDB1E1EF5915}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {021FB477-A504-46F2-A0F2-D422E20478D4}

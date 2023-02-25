@@ -11,36 +11,17 @@ namespace Resource.Server
     public class ServerMain : BaseScript
     {
 
-        public ServerMain()
-        {
-            // example code
-            _ = Init();
-            Print.Log("Booting...");
-            return;
-        }
-
+        public ServerMain() => _ = Init();
         private async Task Init()
         {
             // example code
             await Delay(100);
-            return;
+            Print.Log("Booting...");
         }
 
+        // example command
         [Command("test2")]
-        public void Test()
-        {
-            // example code
-            // Debug.WriteLine("HELLO WORLD!");
-            return;
-        }
-
-        [Tick]
-        private static async Task OnTick()
-        {
-            // example code
-            // Debug.WriteLine("HELLO WORLD!");
-            return;
-        }
+        public static void Test() => Print.Log("Hello From Test");
 
     }
 }

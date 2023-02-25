@@ -34,6 +34,10 @@
     <Reference Include="CitizenFX.Core">
       <HintPath>..\..\..\..\Desktop\RedM_References\CitizenFX.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\RedM_References\Newtonsoft.Json.12.0.2\lib\portable-net40+sl5+win8+wp8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="RedLib">
       <HintPath>..\..\..\..\Desktop\RedM_References\RedLib.dll</HintPath>
     </Reference>
@@ -61,7 +65,8 @@ if %25Resource%25 == thisResourceName (
   cd $(SolutionDir)
   rmdir /s /q "%25dir%25\%25Resource%25"
   mkdir "%25dir%25\%25Resource%25"
-  copy /y "fxmanifest.lua" "%25dir%25\%25Resource%25"
+  copy /y "Manifest\fxmanifest.lua" "%25dir%25\%25Resource%25"
+  xcopy /y /e "Nui\" "%25dir%25\%25Resource%25\Client\nui\"
   if $(ConfigurationName) == Debug (
     xcopy /y /e "Resource.Client\bin\Debug\" "%25dir%25\%25Resource%25\Client\bin\publish\"
     xcopy /y /e "Resource.Server\bin\Debug\" "%25dir%25\%25Resource%25\Server\bin\publish\"
