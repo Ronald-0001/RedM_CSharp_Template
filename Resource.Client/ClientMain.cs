@@ -27,7 +27,7 @@ namespace Resource.Client
                 return true;
             });
             // example script > nui call
-            _ = Nui.Send(new { call = "Test" });
+            _ = Nui.Send(new { call = "Test", data = "Test sendt from the script" });
             //bool send = await Nui.Send(new { call = "Test" });
         }
 
