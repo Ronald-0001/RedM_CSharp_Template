@@ -5,7 +5,10 @@ rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aw
 ui_page 'Client/nui/index.html'
 
 files {
-	'Client/nui/*',
+	'Client/nui/*.js',
+	'Client/nui/*.css',
+	'Client/nui/*.html',
+	'Client/nui/Dependent/*.js',
 	'Client/bin/publish/*.dll',
 }
 
