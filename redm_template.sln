@@ -26,6 +26,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nui", "nui", "{D027AE36-E43
 		Nui\styles.css = Nui\styles.css
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dependent", "dependent", "{D0FE2739-0278-4147-937F-84F984A473BA}"
+	ProjectSection(SolutionItems) = preProject
+		Nui\Dependent\messages.js = Nui\Dependent\messages.js
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +52,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{EF51B11E-D7A6-4C64-A4ED-0FFDF6AC32B0} = {6AC79DA2-E572-4C8A-B143-DDB1E1EF5915}
 		{D027AE36-E433-4063-81D3-6CBE8793F361} = {6AC79DA2-E572-4C8A-B143-DDB1E1EF5915}
+		{D0FE2739-0278-4147-937F-84F984A473BA} = {D027AE36-E433-4063-81D3-6CBE8793F361}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {021FB477-A504-46F2-A0F2-D422E20478D4}

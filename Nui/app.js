@@ -1,8 +1,7 @@
-// browser side
-window.addEventListener('message', (event) => {
-  if (event.data.type === 'init') { OnInit(); console.log("Initializing Nui;"); }
-});
+// main script
 
-function OnInit(){
-  $('body').html("<script type=\"text/javascript\" src=\"app.js\" async></script>");
-}
+// example script > nui call
+Nui.Calls["Test"] = (_object) => { console.log(_object); };
+
+// example nui > scropt call
+Nui.Send("Test", { test = "Test sendt from the nui" }, (_object) => { console.log(_object); });

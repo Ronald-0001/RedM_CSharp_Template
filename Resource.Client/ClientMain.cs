@@ -12,13 +12,23 @@ namespace Resource.Client
     public class ClientMain : ClientScript
     {
 
-        public ClientMain() => _ = Init();
-        private async Task Init()
+        public ClientMain()
         {
-            // example code
-            await Delay(100);
-            Print.Log("Booting...");
-            Lib.SendNuiMessage(JsonConvert.SerializeObject(new { type = "init" }));
+            // nui setup
+            Lib.RegisterNuiCallbackType("message");
+            EventHandlers["__cfx_nui:message"] += new Action<IDictionary<string, object>, CallbackDelegate>(Nui.On_Message);
+            // example nui > script call
+            Nui.Calls.Add("Test", (object _data, CallbackDelegate _cb) => {
+                // handle data
+                Print.Log(JsonConvert.SerializeObject(_data));
+                // return result to nui
+                _cb(new { result = "Recived;" });
+                // end CallbackDelegate
+                return true;
+            });
+            // example script > nui call
+            _ = Nui.Send(new { call = "Test" });
+            //bool send = await Nui.Send(new { call = "Test" });
         }
 
         // example command
