@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Included_Files", "Included_Files", "{6AC79DA2-E572-4C8A-B143-DDB1E1EF5915}"
 	ProjectSection(SolutionItems) = preProject
 		linker.cmd = linker.cmd
+		modules.cmd = modules.cmd
 		onbuild.cmd = onbuild.cmd
 		readme.txt = readme.txt
 	EndProjectSection
