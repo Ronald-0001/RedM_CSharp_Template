@@ -3,13 +3,17 @@
 Nui = {};
 // send messages to the script
 Nui.Send = (_call, _object, _cb) => {
-    fetch(`https://${GetParentResourceName()}/message`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json; charset=UTF-8', },
-        body: JSON.stringify({ call: _call, data: _object }),
-    }).then(_json => _json.json()).then(_object => {
-        if (typeof (_cb) == "function") _cb(_object);
-    });
+    try {
+        fetch(`https://${GetParentResourceName()}/message`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json; charset=UTF-8', },
+            body: JSON.stringify({ call: _call, data: _object }),
+        }).then(_json => _json.json()).then(_object => {
+            if (typeof (_cb) == "function") _cb(_object);
+        });
+    } catch (error) {
+        console.log(`failed to send call: ${_call}`);
+    }
 }
 Nui.Calls = [];
 // handle incomming messages from the script
