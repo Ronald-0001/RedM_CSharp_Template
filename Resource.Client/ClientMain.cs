@@ -17,6 +17,8 @@ namespace Resource.Client
             // nui setup
             Lib.RegisterNuiCallbackType("message");
             EventHandlers["__cfx_nui:message"] += new Action<IDictionary<string, object>, CallbackDelegate>(Nui.On_Message);
+            
+            
             // example nui > script call
             Nui.Calls.Add("Test", (object _data, CallbackDelegate _cb) => {
                 // handle data
@@ -26,9 +28,10 @@ namespace Resource.Client
                 // end CallbackDelegate
                 return true;
             });
+
+
             // example script > nui call
-            _ = Nui.Send(new { call = "Test", data = "Test sendt from the script" });
-            //bool send = await Nui.Send(new { call = "Test" });
+            Nui.Send(new { call = "Test", data = "Test sendt from the script" });
         }
 
         // example command

@@ -43,16 +43,16 @@ namespace Resource.Client
         /// </summary>
         /// <param name="_data">object that can be converted to Json</param>
         /// <returns>If sent it will return true else it returns false</returns>
-        public static async Task<bool> Send(object _data)
+        public static async void Send(object _data)
         {
             // await ready state
-            int i = 0;
-            while (!Nui.Ready && i < 500) { i++; await BaseScript.Delay(500); }
-            // error out
-            if (!Nui.Ready) { Print.Error("Nui never got ready!"); return false; }
+            while (!Nui.Ready)
+            {
+                await BaseScript.Delay(500);
+                Print.Warn("awaiting nui!");
+            }
             // send
             Lib.SendNuiMessage(JsonConvert.SerializeObject(_data));
-            return true;
         }
     }
 }
