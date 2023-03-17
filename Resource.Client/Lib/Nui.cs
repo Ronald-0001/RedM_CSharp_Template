@@ -14,7 +14,9 @@ namespace Resource.Client
         public static bool Ready { get; private set; } = false;
         public static readonly Dictionary<string, Func<object, CallbackDelegate, bool>> Calls = new Dictionary<string, Func<object, CallbackDelegate, bool>>
         {
-            ["ready"] = (object _data, CallbackDelegate _cb) => { Nui.Ready = true; _cb(new { result = "Recived;" }); return true; }
+            ["ready"] = (object _data, CallbackDelegate _cb) => { Nui.Ready = true; _cb(new { result = "Recived;" }); return true; },
+            // ["focus"] = (dynamic _data, CallbackDelegate _cb) => { Lib.SetNuiFocus(_data.focus, _data.cursor); _cb(new { result = "Recived;" }); return true; }, // can be used for evil
+            ["defocus"] = (object _data, CallbackDelegate _cb) => { Lib.SetNuiFocus(false, false); _cb(new { result = "Recived;" }); return true; },
         };
         /// <summary>
         /// On nui message event
