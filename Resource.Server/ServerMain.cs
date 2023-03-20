@@ -8,7 +8,7 @@ using RedLib;
 
 namespace Resource.Server
 {
-    public class ServerMain : BaseScript
+    public class ServerMain : ServerScript
     {
 
         public ServerMain() => _ = Init();
