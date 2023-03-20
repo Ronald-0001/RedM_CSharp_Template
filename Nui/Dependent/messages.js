@@ -4,13 +4,16 @@ Nui = {};
 // send messages to the script
 Nui.Send = (_call, _object, _cb) => {
     try {
+        var body = "";
+        if (typeof (_object) == "object") {
+            _object["call"] = _call;
+            body = JSON.stringify(_object);
+        } else { body = JSON.stringify({ call: _call, data: _object }) }
         fetch(`https://${GetParentResourceName()}/message`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json; charset=UTF-8', },
-            body: JSON.stringify({ call: _call, data: _object }),
-        }).then(_json => _json.json()).then(_object => {
-            if (typeof (_cb) == "function") _cb(_object);
-        });
+            body: body,
+        }).then(_json => _json.json()).then(_object => { if (typeof (_cb) == "function") _cb(_object); });
     } catch (error) {
         console.log(`failed to send call: ${_call}`);
     }
