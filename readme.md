@@ -1,4 +1,5 @@
 #setup!
+
 // step 1
 create a new repository using the template via github...
 
@@ -15,6 +16,7 @@ rename the redm_template.sln
 update build event
 
 #info!
+
 // references
 - CitizenFX.Core.dll, RedLib & Newtonsoft.Json
 
