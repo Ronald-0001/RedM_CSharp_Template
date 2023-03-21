@@ -1,5 +1,22 @@
-// before coding
-- update refrence to CitizenFX.Core.dll, RedLib & Newtonsoft.Json
+#setup!
+// step 1
+create a new repository using the template via github...
+
+// step 2
+open visual studio and clone the new repository
+
+// step 3
+validate & update references
+
+// step 4 "optional"
+rename the redm_template.sln
+
+// step 5 "optional"
+update build event
+
+#info!
+// references
+- CitizenFX.Core.dll, RedLib & Newtonsoft.Json
 
 // add RedLIB
 - fetch latest RedLib.dll either go to https://github.com/Ronald-0001/RedM_LIB
