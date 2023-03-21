@@ -20,7 +20,7 @@ namespace Resource.Client
             
             
             // example nui > script call
-            Nui.Calls.Add("Test", (object _data, CallbackDelegate _cb) => {
+            Nui.Calls.Add("Test", (IDictionary<string, object> _data, CallbackDelegate _cb) => {
                 // handle data
                 Print.Log(JsonConvert.SerializeObject(_data));
                 // return result to nui
@@ -36,7 +36,7 @@ namespace Resource.Client
 
         // example command
         [Command("test1")]
-        public static void Test() => Print.Log("Hello From Test");
+        public static void Test(/*int src, List<object> args, string raw*/) => Print.Log("Hello From Test");
 
         // example tick
         [Tick]

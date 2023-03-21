@@ -21,7 +21,7 @@ namespace Resource.Server
 
         // example command
         [Command("test2")]
-        public static void Test() => Print.Log("Hello From Test");
+        public static void Test(/*int src, List<object> args, string raw*/) => Print.Log("Hello From Test");
 
     }
 }
