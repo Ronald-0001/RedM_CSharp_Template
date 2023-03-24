@@ -18,6 +18,16 @@ namespace Resource.Client
             ["defocus"] = (IDictionary<string, object> _data, CallbackDelegate _cb) => { Lib.SetNuiFocus(false, false); _cb(new { result = "Recived;" }); return true; },
         };
         /// <summary>
+        /// setup events and awaits for ready state
+        /// </summary>
+        public static async Task Init()
+        {
+            Lib.RegisterNuiCallbackType("message");
+            ClientMain.EventRegistry["__cfx_nui:message"] += new Action<IDictionary<string, object>, CallbackDelegate>(On_Message);
+
+            while (!Ready) { await BaseScript.Delay(100); }
+        }
+        /// <summary>
         /// On nui message event
         /// </summary>
         /// <param name="_data">The message from the nui</param>
